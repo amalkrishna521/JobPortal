@@ -1,0 +1,32 @@
+{% load static %}
+
+<div class="mt-5 py-4" style="background-color: #333; color: #fff;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h3>Contact Information</h3>
+                <p><i class="fas fa-map-marker-alt text-danger"></i> KSRTC Bus Stand, Calicut</p>
+                <p><i class="fas fa-envelope text-danger"></i> oneteam@gmail.com</p>
+                <p><i class="fas fa-phone-alt text-danger"></i> Ph: +91 9877898767</p>
+                <p><i class="fas fa-globe text-danger"></i> Web: www.oneteam.com</p>
+            </div>
+            <div class="col-md-4">
+                <h3>Online Placement</h3>
+                <p>Our online placement portal connects job seekers with employers, providing a platform for job listings, resume building, and application tracking. Whether you're a fresh graduate or an experienced professional, our portal offers tools and resources to help you find the perfect job. Employers can easily post job openings.</p>
+            </div>
+            <div class="col-md-4">
+                <h3>Newsletter</h3>
+                <p>If you want any extra information, please provide your email ID:</p>
+                <form method="post" class="form-inline">
+                    {% csrf_token %}
+                    <div class="input-group">
+                        <input type="email" name="emailid" placeholder="Your Email" required class="form-control">
+                        <div class="input-group-append">
+                            <button type="submit" class="btn btn-primary">Subscribe</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .contact-info {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-bottom: 20px;
+            transition: box-shadow 0.3s ease-in-out;
+        }
+        .contact-info:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.9);
+        }
+        .contact-info h2 {
+            margin-bottom: 20px;
+            color: #007bff;
+            font-size: 32px;
+        }
+        .contact-info p {
+            font-size: 18px;
+            margin: 10px 0;
+            color: #333;
+        }
+        .contact-info p i {
+            margin-right: 10px;
+            color: #007bff;
+        }
+        .contact-info p a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .contact-info p a:hover {
+            text-decoration: underline;
+        }
+        .footer {
+            background-color: #343a40;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        .footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+{% include 'navigation.html' %}
+
+<marquee style="font-family: 'Monotype Corsiva'; font-size: 25px; color: darkcyan; background-color: black; font-weight: bold; margin-top: 1%;">
+    User SignUp
+</marquee>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="contact-info">
+                <h2>Contact Us</h2>
+                <p><i class="fas fa-phone-alt"></i><strong>Phone Number:</strong> 9633961521</p>
+                <p><i class="fas fa-envelope"></i><strong>Email Address:</strong> <a href="mailto:amalkrishnaps97@gmail.com">amalkrishnaps97@gmail.com</a></p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="contact-info">
+                <h2>Visit Us</h2>
+                <p><i class="fas fa-map-marker-alt"></i><strong>Location:</strong> Naduvannur</p>
+                <p><i class="fas fa-clock"></i><strong>Office Hours:</strong> 9 AM to 5 PM</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="contact-info">
+                <h2>Our Office</h2>
+                <p><i class="fas fa-building"></i><strong>Address:</strong> Naduvannur, Kerala, India</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <p>&copy; 2023 Your Company. All rights reserved. <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

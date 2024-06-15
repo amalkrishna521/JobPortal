@@ -1,0 +1,89 @@
+{% load static %}
+{% block body %}
+
+{% include 'recruiter_navigation.html' %}
+
+<marquee style="font-family: 'monotype Corsiva'; font-size: 25px; color: darkcyan; background-color: black; font-weight: bold; margin-top: 1%;">
+    Welcome, {{ recruiter.user.first_name }}!
+</marquee>
+<hr>
+
+<div class="container mt-5">
+    <h2>Your Profile Information</h2>
+    <div class="row">
+        <div class="col-md-4">
+            {% if recruiter.image %}
+                <img src="{{ recruiter.image.url }}" class="img-fluid" alt="Recruiter Image">
+            {% else %}
+                <img src="{% static 'default_profile.png' %}" class="img-fluid" alt="Default Recruiter Image">
+            {% endif %}
+        </div>
+        <div class="col-md-8">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label>First Name</label>
+                        <input type="text" class="form-control" name="fname" value="{{ recruiter.user.first_name }}" placeholder="Enter First Name" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Last Name</label>
+                        <input type="text" class="form-control" name="lname" value="{{ recruiter.user.last_name }}" placeholder="Enter Last Name" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label>Contact Number</label>
+                        <input type="text" class="form-control" name="contact" value="{{ recruiter.mobile }}" placeholder="Enter Contact Number" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Company</label>
+                        <input type="text" class="form-control" name="company" value="{{ recruiter.company }}" placeholder="Enter Company Name" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <label>Email Id</label>
+                        <input type="text" class="form-control" name="email" value="{{ recruiter.user.username }}" placeholder="Enter Email Address" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label>Gender</label>
+                        <div style="border: 1px solid lightgray; padding: 6px; border-radius: 6px;">
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" id="customRadioInline1" name="gender" class="custom-control-input" value="Male" {% if recruiter.gender == "Male" %}checked{% endif %} required>
+                                <label class="custom-control-label" for="customRadioInline1">Male</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" id="customRadioInline2" name="gender" class="custom-control-input" value="Female" {% if recruiter.gender == "Female" %}checked{% endif %} required>
+                                <label class="custom-control-label" for="customRadioInline2">Female</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Image</label>
+                        <input type="file" class="form-control" name="image">
+                    </div>
+                </div>
+                <input type="submit" value="Update Profile" class="btn btn-primary mt-3" style="width: 200px;">
+            </form>
+        </div>
+    </div>
+</div>
+
+{% include 'footer.html' %}
+
+{% if error == 'no' %}
+<script>
+    alert('Profile updated successfully');
+    window.location = ("{% url 'recruiter_home' %}");
+</script>
+{% endif %}
+{% if error == 'yes' %}
+<script>
+    alert('Something went wrong, try again...');
+</script>
+{% endif %}
+
+{% endblock %}
